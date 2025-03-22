@@ -1,8 +1,8 @@
-package com.bootcamp.bc.bc_yahoo_finance.infra.web;
+package com.bootcamp.bc.bc_yahoo_finance.infra.yahoofinance.exception;
 
 import com.bootcamp.bc.bc_yahoo_finance.infra.yahoofinance.lib.web.Errorable;
 
-public enum GeneralError implements Errorable {
+public enum YahooFinanceError implements Errorable {
   Entity_NOT_FOUND_EX(1, "Entity not found."), //
   INV_INPUT_EX(2, "Invalid Input."), //
   REST_CLIENT_EX(3, "Rest Client Exception."),;
@@ -10,7 +10,7 @@ public enum GeneralError implements Errorable {
   private int code;
   private String message;
 
-  private GeneralError(int code, String message) {
+  private YahooFinanceError(int code, String message) {
     this.code = code;
     this.message = message;
   }

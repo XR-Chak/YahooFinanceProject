@@ -7,7 +7,7 @@ import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.util.List;
-import com.bootcamp.bc.bc_yahoo_finance.model.dto.YahooQuoteDTO;
+import com.bootcamp.bc.bc_yahoo_finance.infra.yahoofinance.dto.YahooQuoteDTO;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 public interface YahooFinanceService {

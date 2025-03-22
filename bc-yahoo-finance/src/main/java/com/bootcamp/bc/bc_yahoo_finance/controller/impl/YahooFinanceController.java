@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.bootcamp.bc.bc_yahoo_finance.controller.YahooFinanceOperation;
-import com.bootcamp.bc.bc_yahoo_finance.model.dto.YahooQuoteDTO;
+import com.bootcamp.bc.bc_yahoo_finance.infra.yahoofinance.dto.YahooQuoteDTO;
 import com.bootcamp.bc.bc_yahoo_finance.service.YahooFinanceService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 

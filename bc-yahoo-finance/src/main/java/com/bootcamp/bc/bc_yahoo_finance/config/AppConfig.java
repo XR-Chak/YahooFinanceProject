@@ -4,7 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import com.bootcamp.bc.bc_yahoo_finance.infra.web.RedisHelper;
-import com.bootcamp.bc.bc_yahoo_finance.infra.yahoofinance.YHRestClient;
+import com.bootcamp.bc.bc_yahoo_finance.infra.yahoofinance.client.YahooFinanceClient;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -12,8 +12,8 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 @Configuration
 public class AppConfig {
   @Bean
-  YHRestClient yahooRestClient() {
-    return new YHRestClient();
+  YahooFinanceClient yahooFinanceClient() {
+    return new YahooFinanceClient();
   }
 
   @Bean

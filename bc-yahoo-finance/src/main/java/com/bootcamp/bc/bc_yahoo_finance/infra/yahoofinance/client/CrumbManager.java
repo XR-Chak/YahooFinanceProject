@@ -1,15 +1,14 @@
-package com.bootcamp.bc.bc_yahoo_finance.infra.yahoofinance;
+package com.bootcamp.bc.bc_yahoo_finance.infra.yahoofinance.client;
 
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
-import com.bootcamp.bc.bc_yahoo_finance.infra.web.UrlManager;
+import org.springframework.web.util.UriComponentsBuilder;
+import com.bootcamp.bc.bc_yahoo_finance.infra.yahoofinance.util.Yahoo;
 
 public class CrumbManager {
-  // private static final String CRUMB_URL =
-  // "https://query1.finance.yahoo.com/v1/test/getcrumb";
   private RestTemplate restTemplate;
   private CookieManager cookieManager;
 
@@ -19,7 +18,6 @@ public class CrumbManager {
   }
 
   public String getCrumb() {
-    // this.cookieStore.clear();
     try {
       String cookie = this.cookieManager.getCookie();
       // System.out.println("cookie=" + cookie);
@@ -27,13 +25,13 @@ public class CrumbManager {
       headers.add("Cookie", cookie);
       HttpEntity<HttpHeaders> entity = new HttpEntity<>(headers);
 
-      String crumbUrl = UrlManager.builder() //
-          .domain(YahooFinance.DOMAIN) //
-          .version(YahooFinance.VERSION_CRUMB) //
-          .endpoint(YahooFinance.ENDPOINT_CRUMB) //
-          .build() //
+      String crumbUrl = UriComponentsBuilder.newInstance()
+          .scheme("https") //
+          .host(Yahoo.DOMAIN) //
+          .path(Yahoo.VERSION_CRUMB) //
+          .path(Yahoo.ENDPOINT_CRUMB) //
           .toUriString();
-
+      // System.out.println("crumb url=" + crumbUrl);
       return restTemplate
           .exchange(crumbUrl, HttpMethod.GET, entity, String.class) //
           .getBody();

@@ -1,4 +1,4 @@
-package com.bootcamp.bc.bc_yahoo_finance.model.dto;
+package com.bootcamp.bc.bc_yahoo_finance.infra.yahoofinance.dto;
 
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -100,6 +100,27 @@ public class YahooQuoteDTO {
       private Double priceEpsCurrentYear;
       private String averageAnalystRating;
       private String symbol;
+      private List<CorporateAction> corporateActions;
+      private Long preMarketTime;
+      private Double preMarketChange;
+      private Double preMarketChangePercent;
+      private Double preMarketPrice;
+      private Long dividendDate;
+      private String displayName;
+      
+      @Getter
+      public static class CorporateAction {
+        private String header;
+        private String message;
+        private Meta meta;
+
+        @Getter
+        public static class Meta {
+          private String eventType;
+          private Long dateEpochMs;
+          private String amount;
+        }
+      }
     }
 
     @Getter

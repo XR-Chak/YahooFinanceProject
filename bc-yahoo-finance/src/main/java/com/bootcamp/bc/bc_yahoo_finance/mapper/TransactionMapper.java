@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import org.springframework.stereotype.Component;
 import com.bootcamp.bc.bc_yahoo_finance.entity.TransactionEntity;
-import com.bootcamp.bc.bc_yahoo_finance.model.dto.YahooQuoteDTO;
+import com.bootcamp.bc.bc_yahoo_finance.infra.yahoofinance.dto.YahooQuoteDTO;
 
 @Component
 public class TransactionMapper {

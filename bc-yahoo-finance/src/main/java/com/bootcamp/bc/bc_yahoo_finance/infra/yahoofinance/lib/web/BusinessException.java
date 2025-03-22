@@ -1,4 +1,4 @@
-package com.bootcamp.bc.bc_yahoo_finance.infra.web;
+package com.bootcamp.bc.bc_yahoo_finance.infra.yahoofinance.lib.web;
 
 public class BusinessException extends RuntimeException {
   private int code;

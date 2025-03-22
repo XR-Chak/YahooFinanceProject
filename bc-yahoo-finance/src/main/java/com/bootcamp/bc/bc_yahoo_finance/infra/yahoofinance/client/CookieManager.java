@@ -1,4 +1,4 @@
-package com.bootcamp.bc.bc_yahoo_finance.infra.yahoofinance;
+package com.bootcamp.bc.bc_yahoo_finance.infra.yahoofinance.client;
 
 import java.util.List;
 import org.springframework.http.HttpHeaders;
@@ -6,7 +6,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
-import com.bootcamp.bc.bc_yahoo_finance.infra.web.UrlManager;
+import org.springframework.web.util.UriComponentsBuilder;
+import com.bootcamp.bc.bc_yahoo_finance.infra.yahoofinance.util.Yahoo;
 
 public class CookieManager {
   private RestTemplate restTemplate;
@@ -17,10 +18,12 @@ public class CookieManager {
 
   public String getCookie() {
     try {
-      String cookieUrl = UrlManager.builder() //
-          .domain(YahooFinance.DOMAIN_COOKIE) //
-          .build() //
+      String cookieUrl = UriComponentsBuilder.newInstance() //
+          .scheme("https") //
+          .host(Yahoo.DOMAIN_COOKIE) //
           .toUriString();
+
+
 
       ResponseEntity<String> entity =
           restTemplate.getForEntity(cookieUrl, String.class);
